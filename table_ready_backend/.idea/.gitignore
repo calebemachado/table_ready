@@ -8,3 +8,10 @@
 /dataSources.local.xml
 # Zeppelin ignored files
 /ZeppelinRemoteNotebooks/
+/aws.xml
+/compiler.xml
+/encodings.xml
+/jarRepositories.xml
+/jpa-buddy.xml
+/misc.xml
+/vcs.xml
