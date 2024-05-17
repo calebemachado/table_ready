@@ -21,6 +21,13 @@ public class QueueRepository {
         System.out.println("Quantos usuarios tem aqui dentro: " + userQueue.size());
     }
 
-    //TODO remover usuario da fila
+    public void removeUser(AppUser appUser) {
+        userQueue.remove(appUser);
+    }
+
+    public Queue<AppUser> getUserQueue() {
+        return userQueue;
+    }
+
 
 }

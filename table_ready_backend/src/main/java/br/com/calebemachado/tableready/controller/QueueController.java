@@ -2,9 +2,7 @@ package br.com.calebemachado.tableready.controller;
 
 import br.com.calebemachado.tableready.model.AppUser;
 import br.com.calebemachado.tableready.repository.QueueRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class QueueController {
@@ -21,8 +19,15 @@ public class QueueController {
     }
 
     @PostMapping("/add-user")
-    public void addUser(AppUser appUser) {
+    public void addUser(@RequestBody AppUser appUser) {
         queueRepository.addUser(appUser);
+
+        queueRepository.printUsers();
+    }
+
+    @DeleteMapping("/remove-user")
+    public void removeUser(@RequestBody AppUser appUser) {
+        queueRepository.removeUser(appUser);
 
         queueRepository.printUsers();
     }
