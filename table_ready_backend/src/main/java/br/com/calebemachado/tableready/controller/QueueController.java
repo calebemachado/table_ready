@@ -4,6 +4,8 @@ import br.com.calebemachado.tableready.model.AppUser;
 import br.com.calebemachado.tableready.repository.QueueRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Queue;
+
 @RestController
 public class QueueController {
 
@@ -16,6 +18,11 @@ public class QueueController {
     @GetMapping("/queue")
     public void getQueue() {
         queueRepository.printUsers();
+    }
+
+    @GetMapping("/user-queue")
+    public Queue<AppUser> getUserQueue() {
+        return queueRepository.getUserQueue();
     }
 
     @PostMapping("/add-user")
