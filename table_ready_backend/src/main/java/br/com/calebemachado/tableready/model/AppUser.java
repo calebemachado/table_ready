@@ -1,5 +1,6 @@
 package br.com.calebemachado.tableready.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -15,7 +16,7 @@ public class AppUser {
     private String name;
     private String surname;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "phone_id")
     private Phone phone;
 
