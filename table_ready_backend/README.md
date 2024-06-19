@@ -33,4 +33,4 @@ Configuration:
 - enter the container created with `docker exec -it CONTAINER_ID /bin/bash`
 - inside the container, you should enter the postgresql command line interface to create the database:
    - `psql -U postgres` (postgres is the name of the default user, because we did not specified one in docker-compose.yaml, change if necessary)
-   - `create database tablereadylocal` (if you want a different name, change the application.properties too)
+   - `create database tablereadylocal;` (if you want a different name, change the application.properties too)
