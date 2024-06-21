@@ -1,15 +1,24 @@
 package br.com.calebemachado.tableready.repository;
 
-import br.com.calebemachado.tableready.model.AppUser;
+import br.com.calebemachado.tableready.model.QueueEntry;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.List;
 import java.util.UUID;
 
 @Component
-public class QueueRepository {
-    private Queue<AppUser> userQueue = new LinkedList<>();
+public interface QueueRepository extends JpaRepository<QueueEntry, UUID> {
+    QueueEntry findByAppUserPhoneAreaCodeAndAppUserPhoneNumber(Integer areaCode, Integer number);
+    List<QueueEntry> findAll(Sort sort);
+    List<QueueEntry> findByStatus(String status, Sort sort);
+
+
+}
+
+
+/*private Queue<AppUser> userQueue = new LinkedList<>();
 
     public void addUser(AppUser appUser) {
         appUser.setId(UUID.randomUUID());
@@ -30,5 +39,4 @@ public class QueueRepository {
 
     public void deleteUser() {
         userQueue.remove();
-    }
-}
+    }*/
